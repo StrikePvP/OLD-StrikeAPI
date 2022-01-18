@@ -1,0 +1,4 @@
+name: StrikeAPI
+version: 1.0
+author: Shineeeeeuh
+main: io.shine.strikeapi.bungee.StrikeAPIBungee
