@@ -23,6 +23,7 @@ public class GuiItem {
 			e.setCancelled(true);
 			return;
 		}else {
+			e.setCancelled(true);
 			ac.run(e);
 		}
 	}

@@ -16,7 +16,7 @@ public class ServerManager {
 	}
 	
 	private static boolean StringToBoolean(String i) {
-		if(i == "1") {
+		if(i.equalsIgnoreCase("1")) {
 			return true;
 		}else {
 			return false;

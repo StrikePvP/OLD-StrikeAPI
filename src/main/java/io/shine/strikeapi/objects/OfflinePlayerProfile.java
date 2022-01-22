@@ -85,6 +85,7 @@ public class OfflinePlayerProfile {
 	}
 	
 	public void setFriends(String s) {
+		friends.clear();
 		for(String f : s.split(",")) {
 			friends.add(f);
 		}

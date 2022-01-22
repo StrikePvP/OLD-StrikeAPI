@@ -10,38 +10,38 @@ import org.bukkit.inventory.Inventory;
 import io.shine.strikeapi.developer.spigot.items.GuiItem;
 import io.shine.strikeapi.spigot.events.GuiEvents;
 
-public class GuiBuilder {
-	private String[] items;
-	private HashMap<String, GuiItem> itemscode;
+public abstract class GuiBuilder {
+	private Inventory inv;
+	private HashMap<Integer, GuiItem> items;
 	private String name;
+	private int rows;
 	
-	public GuiBuilder(String name, String[] items) {
+	public GuiBuilder(String name, int rows) {
 		this.name = name;
-		this.items = items;
-		this.itemscode = new HashMap<>();
+		this.items = new HashMap<>();
+		this.rows = rows*9;
 	}
 	
 	public void build(Player p) {
-		Inventory inv = Bukkit.createInventory(null, items.length, name);
-		int i = 0;
-		for(String s : items) {
-			if(s == "") {
-				i++;
-				continue;
-			}
-			inv.setItem(i, itemscode.get(s).getItemStack());
-			i++;
-		}
+		inv = Bukkit.createInventory(null, rows, name);
+		onBuild(p);
 		GuiEvents.guicache.put(p.getName(), this);
 		p.openInventory(inv);
 	}
 	
-	public void addItem(String code, GuiItem it) {
-		itemscode.put(code, it);
+	public abstract void onBuild(Player p);
+	
+	public Inventory getInventort() {
+		return inv;
+	}
+	
+	public void setItem(int slot, GuiItem item) {
+		inv.setItem(slot, item.getItemStack());
+		items.put(slot, item);
 	}
 	
 	public void onExecute(InventoryClickEvent e) {
-		GuiItem clickeditem = itemscode.get(items[e.getSlot()]);
+		GuiItem clickeditem = items.get(e.getSlot());
 		if(clickeditem == null) return;
 		clickeditem.run(e);
 	}
