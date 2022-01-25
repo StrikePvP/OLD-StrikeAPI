@@ -4,6 +4,7 @@ import io.shine.strikeapi.achievement.IAchievementManager;
 import io.shine.strikeapi.enums.SERVER;
 import io.shine.strikeapi.party.IPartyManager;
 import io.shine.strikeapi.player.IPlayerManager;
+import io.shine.strikeapi.punishment.IPunishmentManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import redis.clients.jedis.JedisPool;
 
@@ -40,4 +41,6 @@ public abstract class StrikeAPI {
     public abstract ScheduledExecutorService getExecutor();
 
     public abstract String getServerName();
+
+    public abstract IPunishmentManager getPunishmentManager();
 }
