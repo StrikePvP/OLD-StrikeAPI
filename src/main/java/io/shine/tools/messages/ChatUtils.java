@@ -1,6 +1,11 @@
 package io.shine.tools.messages;
 
 public class ChatUtils {
+    /**
+     * Replace Holders on a text
+     * @param message Text
+     * @return Message with replaced Holders
+     */
     public static String replaceHolders(String message, Object... holders){
         for (int i = 0; i <= holders.length - 1; i += 2) {
             message = message.replaceAll(String.valueOf(holders[i]), String.valueOf(holders[i+1]));
@@ -8,6 +13,9 @@ public class ChatUtils {
         return message;
     }
 
+    /**
+     * Apply color on text
+     */
     public static String applyColor(String text){
         return text.replaceAll("&", "§");
     }

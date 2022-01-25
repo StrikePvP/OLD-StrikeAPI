@@ -1,5 +1,6 @@
 package io.shine.strikeapi.player;
 
+import io.shine.strikeapi.friends.PlayerFriends;
 import io.shine.strikeapi.rank.Rank;
 import io.shine.strikeapi.settings.SettingsState;
 
@@ -10,6 +11,7 @@ public abstract class StrikePlayer {
     private List<Integer> achievement;
     private int coins;
     private Rank rank;
+
 
     public StrikePlayer(String name, String uuid) {
         this.uuid = uuid;
@@ -45,5 +47,7 @@ public abstract class StrikePlayer {
     public abstract SettingsState getSettings(String settings, SettingsState defaultstate);
 
     public abstract SettingsState getSettings(String settings);
+
+    public abstract PlayerFriends getFriends();
 
 }

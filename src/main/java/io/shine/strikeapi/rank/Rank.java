@@ -27,18 +27,34 @@ public enum Rank {
         this.prefixname = prefixname;
     }
 
+    /**
+     * Get Rank ID
+     * @return ID
+     */
     public int getID() {
         return id;
     }
 
+    /**
+     * Get Custom Name Prefix
+     * @return Prefix
+     */
     public String getPrefixCustomName() {
         return prefixname;
     }
 
+    /**
+     * Get permisison power
+     * @return Permisison Power
+     */
     public int getPower() {
         return power;
     }
 
+    /**
+     * Get Chat and Tab Prefix
+     * @return Prefix
+     */
     public String getPrefix() {
         return prefix;
     }
