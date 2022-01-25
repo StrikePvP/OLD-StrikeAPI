@@ -1,0 +1,5 @@
+name: StrikeAPI
+version: 2.0
+author: Shineeeeeuh
+main: io.shine.plugin.APIPlugin
+load: STARTUP
