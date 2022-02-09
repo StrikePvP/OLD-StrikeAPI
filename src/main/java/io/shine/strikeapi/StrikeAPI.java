@@ -74,6 +74,10 @@ public abstract class StrikeAPI {
      */
     public abstract IPlayerManager getPlayerManager();
 
+    /**
+     * Get Scheduled Executor
+     * @return Scheduled Executor
+     */
     public ScheduledExecutorService getExecutor(){
         return executor;
     }

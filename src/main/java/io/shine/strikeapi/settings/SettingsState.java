@@ -11,6 +11,10 @@ public enum SettingsState {
         this.state = state;
     }
 
+    /**
+     * Get state int
+     * @return
+     */
     public int getState() {
         return state;
     }

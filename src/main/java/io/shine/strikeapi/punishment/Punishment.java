@@ -112,5 +112,4 @@ public class Punishment {
     public long getStartTime() {
         return starttime;
     }
-
 }

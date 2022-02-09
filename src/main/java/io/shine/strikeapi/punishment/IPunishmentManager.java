@@ -28,4 +28,11 @@ public interface IPunishmentManager {
      * @param uuid Punishment UUID
      */
     void removePunishment(String uuid);
+
+    /**
+     * Check if player is punish
+     * @param uuid Player's UUID
+     * @return Is punish
+     */
+    boolean isPunish(String uuid);
 }

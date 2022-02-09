@@ -16,7 +16,7 @@ public interface IPlayerManager {
     StrikePlayer loadPlayer(String uuid);
 
     /**
-     * Unload Player from cache and save it on redis or mongodb
+     * Unload player from cache and save it on redis or mongodb
      * @param uuid Player's uuid
      */
     void unloadPlayer(String uuid);
