@@ -34,8 +34,8 @@ jobs:
       run: mvn install package
     - name: RenameFile
       run: |
-        cd ~
-        ls
+        cd ~/work/StrikeAPI/StrikeAPI/target/unshaded/
+        mv StrikeAPI-*.jar StrikeAPI.jar
     - name: Upload Artifact to GitHub Action
       uses: actions/upload-artifact@v2.3.1
       with: 
