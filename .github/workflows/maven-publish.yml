@@ -36,14 +36,16 @@ jobs:
     - name: Upload Artifact to GitHub Action
       uses: actions/upload-artifact@v2.3.1
       with: 
-        name: StrikeAPI.jar
-        path: target/unshaded/StrikeAPI-*.jar
+        name: dist
+        path: ./target/unshaded/StrikeAPI-*.jar
 
   release:
     name: Create Github Release
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
       - name: Create Release
         id: create-release
         uses: actions/create-release@v1
