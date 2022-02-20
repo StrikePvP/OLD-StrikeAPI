@@ -38,7 +38,7 @@ jobs:
         mv StrikeAPI-*.jar StrikeAPI.jar
     - name: Get Version to Upload
       id: pom
-      uses: avides/actions-project-version-check@latest
+      uses: avides/actions-project-version-check@v1.2.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         file-to-check: pom.xml
