@@ -86,6 +86,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <outputDirectory>${project.build.directory}/unshaded</outputDirectory>
+                    <fileName>StrikeAPI</fileName>
                 </configuration>
          </plugin>
         </plugins>
