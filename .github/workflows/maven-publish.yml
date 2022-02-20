@@ -36,12 +36,12 @@ jobs:
       run: |
         cd ~/work/StrikeAPI/StrikeAPI/target/unshaded/
         mv StrikeAPI-*.jar StrikeAPI.jar
-    - name: Get Version to Upload
-      id: pom
-      uses: avides/actions-project-version-check@v1.2.1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        file-to-check: pom.xml
+    - name: Auto Increment Version
+        uses: docker://igorgov/auto-inc-ver:v1.2.0
+        id: versioning
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            mode: stable
     - name: Upload Artifact to GitHub Action
       uses: actions/upload-artifact@v2.3.1
       with: 
@@ -61,8 +61,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.pom.outputs.version }}
-          release_name: ${{ steps.pom.outputs.version }}
+          tag_name: ${{ steps.versioning.outputs.version }}
+          release_name: ${{ steps.versioning.outputs.version }}
           draft: false
           prerelease: false
 
