@@ -62,6 +62,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: ./StrikeAPI.jar
+          asset_path: ./target/unshaded/StrikeAPI.jar
           asset_name: StrikeAPI.jar
           asset_content_type: application/java-archive
