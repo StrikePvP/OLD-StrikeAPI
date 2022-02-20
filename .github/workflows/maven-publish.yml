@@ -41,7 +41,7 @@ jobs:
       uses: mavrosxristoforos/get-xml-info@1.0
       with:
         xml-file: "pom.xml"
-        xpath: "//project/version"
+        xpath: "//project"
     - name: Upload Artifact to GitHub Action
       uses: actions/upload-artifact@v2.3.1
       with: 
