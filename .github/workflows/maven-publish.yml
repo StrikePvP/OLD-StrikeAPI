@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v2.3.1
       with: 
         name: dist
-        path: ./target/unshaded/StrikeAPI-*.jar
+        path: ./target/unshaded/StrikeAPI.jar
 
   release:
     name: Create Github Release
@@ -63,6 +63,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: ./target/unshaded/StrikeAPI-*.jar
+          asset_path: ./dist/StrikeAPI-*.jar
           asset_name: StrikeAPI.jar
           asset_content_type: application/java-archive
