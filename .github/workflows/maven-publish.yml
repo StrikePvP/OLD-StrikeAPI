@@ -42,22 +42,14 @@ jobs:
   release:
     name: Create Github Release
     needs: [ build ]
-    if: github.event_name == 'create' && github.event.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Download Artifacts
-        uses: actions/download-artifact@v2
-
       - name: Create Release
         id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           draft: true
           prerelease: false
