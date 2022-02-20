@@ -37,7 +37,7 @@ jobs:
       uses: actions/upload-artifact@v2.3.1
       with: 
         name: StrikeAPI.jar
-        path: target/StrikeAPI-*.jar
+        path: target/unshaded/StrikeAPI-*.jar
 
   release:
     name: Create Github Release
