@@ -23,10 +23,6 @@ jobs:
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-    - name: RenameFile
-      run: |
-        cd ~/StrikeAPI/StrikeAPI/target/unshaded/
-        mv StrikeAPI-*.jar StrikeAPI.jar
     - name: Buildtools
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
@@ -36,6 +32,10 @@ jobs:
         java -jar BuildTools.jar --rev 1.8.8
     - name: Build with Maven
       run: mvn install package
+    - name: RenameFile
+      run: |
+        cd ~/StrikeAPI/StrikeAPI/target/unshaded/
+        mv StrikeAPI-*.jar StrikeAPI.jar
     - name: Upload Artifact to GitHub Action
       uses: actions/upload-artifact@v2.3.1
       with: 
