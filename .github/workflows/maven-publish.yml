@@ -37,10 +37,11 @@ jobs:
         cd ~/work/StrikeAPI/StrikeAPI/target/unshaded/
         mv StrikeAPI-*.jar StrikeAPI.jar
     - name: Get Version to Upload
-      run: |
-        cd ~/work/StrikeAPI/StrikeAPI/
-        echo ::set-output name=version::$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-      id: project
+      id: getxml
+      uses: mavrosxristoforos/get-xml-info@1.0
+      with:
+        xml-file: "pom.xml"
+        xpath: '//'
     - name: Upload Artifact to GitHub Action
       uses: actions/upload-artifact@v2.3.1
       with: 
@@ -61,7 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: RELEASE
-          release_name: Release ${{ steps.project.outputs.version }}
+          release_name: Release ${{ steps.getxml.outputs.version }}
           draft: false
           prerelease: false
 
