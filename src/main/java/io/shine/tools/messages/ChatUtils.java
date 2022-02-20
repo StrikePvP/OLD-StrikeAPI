@@ -20,5 +20,14 @@ public class ChatUtils {
         return text.replaceAll("&", "§");
     }
 
+    public static String centerText(String text){
+        StringBuilder builder = new StringBuilder();
+        int pos = (65/2)-(text.length()/2);
+        for(int i = 0; i < pos; i++){
+            builder.append(" ");
+        }
+        builder.append(text);
+        return builder.toString();
+    }
 
 }

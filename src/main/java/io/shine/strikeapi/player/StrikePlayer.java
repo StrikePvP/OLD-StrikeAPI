@@ -64,19 +64,27 @@ public abstract class StrikePlayer {
      * Unlock Achievement to Player
      * @param id
      */
-    public abstract void addAchievement(int id);
+    public void addAchievement(int id){
+        if(!achievement.contains(id)){
+            achievement.add(id);
+        }
+    }
 
     /**
      * Set Player's Coins
      * @param coins Coins
      */
-    public abstract void setCoins(int coins);
+    public void setCoins(int coins){
+        this.coins = coins;
+    }
 
     /**
      * Set Player's Rank
      * @param rank Rank
      */
-    public abstract void setRank(Rank rank);
+    public void setRank(Rank rank){
+        this.rank = rank;
+    }
 
     /**
      * Get setting with default state
@@ -92,6 +100,13 @@ public abstract class StrikePlayer {
      * @return
      */
     public abstract SettingsState getSetting(String setting);
+
+    /**
+     * Set setting
+     * @param setting Setting ID
+     * @param state State
+     */
+    public abstract void setSetting(String setting, SettingsState state);
 
     /**
      * Get player's friend
@@ -111,7 +126,11 @@ public abstract class StrikePlayer {
      * Add Buyed Item to Player by ID
      * @param items Item's ID
      */
-    public abstract void addBuyedItem(int items);
+    public void addBuyedItem(int items){
+        if(buyeditems.contains(items)){
+            buyeditems.add(items);
+        }
+    }
 
     /**
      * Save player data

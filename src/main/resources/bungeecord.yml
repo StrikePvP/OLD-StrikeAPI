@@ -1,0 +1,4 @@
+name: StrikeAPI
+version: 2.1
+authors: ["Shine"]
+main: io.shine.bungeecord.APIPluginBungeecord
