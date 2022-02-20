@@ -23,6 +23,10 @@ jobs:
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+    - name: RenameFile
+      run: |
+        cd ~/StrikeAPI/target/unshaded/
+        mv StrikeAPI-*.jar StrikeAPI.jar
     - name: Buildtools
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
