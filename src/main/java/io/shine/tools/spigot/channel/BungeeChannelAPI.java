@@ -12,7 +12,7 @@ public class BungeeChannelAPI {
         sendMessage(p, "BungeeCord", "Connect", server);
     }
 
-    private static void sendMessage(Player p, String channel, String... lines){
+    public static void sendMessage(Player p, String channel, String... lines){
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
         Arrays.stream(lines).forEach(s -> {
             out.writeUTF(s);
