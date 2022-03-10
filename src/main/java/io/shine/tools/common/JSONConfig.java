@@ -54,7 +54,7 @@ public class JSONConfig {
             writer.write(gson.toJson(jsonObject));
             writer.close();
         } catch (IOException e) {
-        e   .printStackTrace();
+            e.printStackTrace();
         }
     }
 }
